@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * The scorecard is a class that keeps track of how many points the player
  * has accumulated in each category, as well as subtotals, bonuses and totals.
@@ -43,7 +45,8 @@ public class ScoreCard {
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
-	
+	private int scores[] = new int[12];
+	Arrays.fill(scores, -1);
 	/**
 	 * constructor - set up an empty scorecard.
      * Suggestion: start all scores as -1, since it is possible that the user
@@ -51,6 +54,8 @@ public class ScoreCard {
  	 */
 	public ScoreCard()
 	{
+		int scores[] = new int[12];
+		Arrays.fill(scores, -1);
 		//--------------------
 		// TODO: insert your code here.
 		
@@ -65,10 +70,7 @@ public class ScoreCard {
 	public boolean categoryIsEmpty(int category)
 	{
 		boolean empty = true;
-		//--------------------
-		// TODO: insert your code here.
-		
-		//--------------------
+		if(scores[category] == 3)
 		return empty;
 	}
 	
