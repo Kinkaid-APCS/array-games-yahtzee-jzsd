@@ -19,13 +19,40 @@ public class Board {
 
 	// TODO: decide which private member variables Board needs and declare them here. 
 	//          HINT: See the note above!
-	
+
+	private int[] myDice;
+	private int[] frequencyChart;
+	private int scoreAwarded = 0;
 	/**
 	 * constructor - set up initial values for the board.
 	 */
 	// TODO: write the Board's constructor
-	
-	/**
+
+	public Board()
+	{
+		myDice = new int[5];
+		frequencyChart = new int[7];
+		frequencyChart[0] = -1;
+
+	}
+
+	public String toString()
+	{
+		String finalresult = "";
+
+		String diceresult = "";
+		diceresult+="| ";
+
+		for(int i = 0;i<myDice.length;i++)
+		{
+			diceresult += myDice[i]+" | ";
+		}
+
+		finalresult = "";
+
+	return diceresult;
+
+	}	/**
 	 * toString - creates a string depicting the dice on the board.
 	 * @return a string depicting the dice.
 	 * I suggest that you also put letters to label which die is which, for example:
