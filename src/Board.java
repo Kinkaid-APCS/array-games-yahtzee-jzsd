@@ -118,8 +118,6 @@ public class Board {
 				}
 			}
 
-			System.out.println(letter+" "+lettertomatch);
-
 			myDice[lettertomatch] = (int)(Math.random()*(6)+1);
 
 		}
@@ -136,6 +134,51 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
+
+
+		for (int i = 0; i<myDice.length;i++)
+		{
+			switch (myDice[i])
+			{
+				case 1:
+				{
+					frequencyChart[1]++;
+					break;
+				}
+				case 2:
+				{
+					frequencyChart[2]++;
+					break;
+				}
+
+				case 3:
+				{
+					frequencyChart[3]++;
+					break;
+				}
+
+				case 4:
+				{
+					frequencyChart[4]++;
+					break;
+				}
+				case 5:
+				{
+					frequencyChart[5]++;
+					break;
+				}
+				case 6:
+				{
+					frequencyChart[6]++;
+					break;
+				}
+			}
+
+
+		}
+
+
+
 		
 		// ---------------------------
 	}
