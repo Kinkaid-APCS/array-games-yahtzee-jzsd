@@ -35,7 +35,17 @@ public class Board {
 		frequencyChart[0] = -1;
 
 	}
-
+	/**
+	 * toString - creates a string depicting the dice on the board.
+	 * @return a string depicting the dice.
+	 * I suggest that you also put letters to label which die is which, for example:
+	 * +---+---+---+---+---+
+	 * | A | B | C | D | E |
+	 * +---+---+---+---+---+
+	 * | 1 | 1 | 4 | 1 | 4 |
+	 * +---+---+---+---+---+
+	 */
+	// TODO: write the Board's toString method
 	public String toString()
 	{
 		String finalresult = "";
@@ -54,17 +64,7 @@ public class Board {
 
 	return finalresult;
 
-	}	/**
-	 * toString - creates a string depicting the dice on the board.
-	 * @return a string depicting the dice.
-	 * I suggest that you also put letters to label which die is which, for example:
-	 * +---+---+---+---+---+
-	 * | A | B | C | D | E |
-	 * +---+---+---+---+---+
-	 * | 1 | 1 | 4 | 1 | 4 |
-	 * +---+---+---+---+---+
-	 */
-	// TODO: write the Board's toString method
+	}
 	
 	/**
 	 * rollSelectedDice - takes a string and goes letter by letter; if a
@@ -85,6 +85,43 @@ public class Board {
 			// so now "letter" is one of the letters in the string.
 			// TODO: write code here to look at "letter" and based on it, 
 			//       decide whether to re-roll one of the dice.
+			int lettertomatch=-1;
+
+			switch (letter)
+			{
+				case "A":
+				{
+					lettertomatch = 0;
+					break;
+				}
+
+				case "B":
+				{
+					lettertomatch = 1;
+					break;
+				}
+
+				case "C":
+				{
+					lettertomatch = 2;
+					break;
+				}
+				case "D":
+				{
+					lettertomatch = 3;
+					break;
+				}
+				case "E":
+				{
+					lettertomatch = 4;
+					break;
+				}
+			}
+
+			System.out.println(letter+" "+lettertomatch);
+
+			myDice[lettertomatch] = (int)(Math.random()*(6)+1);
+
 		}
 	
 	}
