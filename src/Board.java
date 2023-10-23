@@ -48,9 +48,11 @@ public class Board {
 			diceresult += myDice[i]+" | ";
 		}
 
-		finalresult = "";
+		finalresult = "+---+---+---+---+---+\n" +
+				"| A | B | C | D | E |\n" +
+				"+---+---+---+---+---+\n"+diceresult+"\n+---+---+---+---+---+";
 
-	return diceresult;
+	return finalresult;
 
 	}	/**
 	 * toString - creates a string depicting the dice on the board.
