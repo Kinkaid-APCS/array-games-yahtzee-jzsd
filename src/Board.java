@@ -211,6 +211,239 @@ public class Board {
 	//    ones at the top of the card might work for more than one category. Others, like for full house, might be more
 	//    specialized....
 
+	public int getScoreForCategory(int category)
+	{
+		switch (category) {
+			case ScoreCard.ONES:
+			{
+				return ONES();
+
+			}
+
+			case ScoreCard.TWOS:
+			{
+			 return TWOS();
+			}
+
+			case ScoreCard.THREES:
+			{
+				return THREES();
+			}
+
+			case ScoreCard.FOURS:
+			{
+				return FOURS();
+			}
+
+			case ScoreCard.FIVES:
+			{
+				return FIVES();
+			}
+
+			case ScoreCard.SIXES:
+			{
+				return SIXES();
+			}
+
+			case ScoreCard.THREE_OF_A_KIND:
+			{
+				return THREE_OF_KIND();
+
+			}
+
+			case ScoreCard.FOUR_OF_A_KIND:
+			{
+				return FOUR_OF_A_KIND();
+			}
+
+			case ScoreCard.FULL_HOUSE:
+			{
+
+				return FULL_HOUSE();
+
+			}
+
+			case ScoreCard.SMALL_STRAIGHT:
+			{
+				return SMALL_STRAIGHT();
+			}
+
+			case ScoreCard.LARGE_STRAIGHT:
+			{
+				return LARGE_STRAIGHT();
+			}
+
+			case ScoreCard.CHANCE:
+			{
+				return CHANCE();
+			}
+
+			case ScoreCard.YAHTZEE:
+			{
+				return YAHTZEE();
+			}
+
+		}
+
+		return -1;
+
+	}
+
+	public int ONES ()
+	{
+		return frequencyChart[1];
+
+	}
+
+	public int TWOS ()
+	{
+
+		return frequencyChart[2];
+	}
+
+	public int THREES ()
+	{
+
+		return frequencyChart[3];
+	}
+
+	public int FOURS ()
+	{
+
+		return frequencyChart[4];
+	}
+
+	public int FIVES ()
+	{
+
+		return frequencyChart[5];
+	}
+
+	public int SIXES ()
+	{
+
+		return frequencyChart[6];
+	}
+
+	public int THREE_OF_KIND()
+	{
+		int scorethreeofakind=0;
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==3)
+			{
+				scorethreeofakind = frequencyChart[i]*i;
+			}
+
+		}
+
+		return scorethreeofakind;
+	}
+
+
+	public int FOUR_OF_A_KIND()
+	{
+		int fourofakind=0;
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==4)
+			{
+				fourofakind = frequencyChart[i]*i;
+			}
+
+		}
+
+		return fourofakind;
+	}
+
+	public int FULL_HOUSE()
+	{
+		int j = 0;
+		int scorefullhouse= 0;
+
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==3)
+			{
+				j++;
+
+			}
+
+			else if (frequencyChart[i]==2)
+			{
+				j++;
+
+			}
+
+		}
+
+		if (j==2)
+		{
+			scorefullhouse = 25;
+		}
+
+		return scorefullhouse;
+
+
+	}
+
+	public int SMALL_STRAIGHT()
+	{
+		int scoresmallstraight = 0;
+		for (int i= 1; i<3;i++)
+		{
+			if (frequencyChart[i]!=0 && frequencyChart[i+1]!=0&& frequencyChart[i+2]!=0&&frequencyChart[i+3]!=0)
+			{
+				scoresmallstraight = 30;
+			}
+
+		}
+
+		return scoresmallstraight;
+
+	}
+
+	public int LARGE_STRAIGHT()
+	{
+		int scorelargestraight=0;
+		if (frequencyChart[1]!=0&&frequencyChart[2]!=0&&frequencyChart[3]!=0&&frequencyChart[4]!=0&&frequencyChart[5]!=0)
+		{
+			scorelargestraight=40;
+		}
+
+		return scorelargestraight;
+	}
+
+
+	public int CHANCE()
+	{
+		int scorechance = 0;
+		for(int i =0;i<frequencyChart.length;i++)
+		{
+			scorechance+=frequencyChart[i]*i;
+		}
+
+
+		return scorechance;
+
+	}
+
+	public int YAHTZEE()
+	{
+
+		int scoreyahtzee = 0;
+
+		for(int i =0;i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i] == 5)
+			{
+				scoreyahtzee = 50;
+			}
+
+		}
+		return scoreyahtzee;
+	}
+
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
 	 * @return the list of frequencies.
