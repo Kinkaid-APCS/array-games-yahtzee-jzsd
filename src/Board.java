@@ -450,10 +450,14 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = null; // I just put this in here to compile - you can replace it.
+		int [] result = new int[6]; // I just put this in here to compile - you can replace it.
 		// ---------------------------
 		// TODO: write your code here.
-		
+
+		for (int i = 0;i<frequencyChart.length;i++)
+		{
+			result [i] = frequencyChart[i];
+		}
 		// ---------------------------
 		return result;
 	}
@@ -474,18 +478,56 @@ public class Board {
 	public void debugSetDice(int a, int b, int c, int d, int e)
 	{
 		// ---------------------------
-		// TODO: write your code here.
+		// TODO: write your code here
+		//
+		for (int i = 0;i<myDice.length;i++)
+		{
+			switch(i) {
+				case 0:
+				{
+					myDice[0] = a;
+					break;
+				}
+
+				case 1:
+				{
+					myDice[1] = b;
+					break;
+				}
+
+				case 2:
+				{
+					myDice[2] = c;
+					break;
+				}
+
+				case 3:
+				{
+					myDice[3] = d;
+					break;
+				}
+
+
+				case 4:
+				{
+					myDice[4] = e;
+					break;
+				}
+			}
+		}
 		
 		// ---------------------------		
 	}
 	
 	public int[] debugGetDice()
 	{
-		int[] result = null; // temporary, so this compiles
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
+
+		int[] result = new int[5];
+		for (int i = 0;i<myDice.length;i++)
+		{
+			result[i] = myDice[i];
+		}
+
 		return result;
 	}
 }
