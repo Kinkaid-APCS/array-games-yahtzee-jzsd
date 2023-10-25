@@ -11,10 +11,11 @@ public class YahtzeeRunner {
 		{
 			System.out.println("Start tests");
 			// enter test code here.
-			test.debugSetDice(1,1,1,1,1);
+			test.debugSetDice(3,3,3,2,2);
 			System.out.println(test);
-			test.rollSelectedDice("ABC");
-			System.out.println(test);
+			test.updateFrequencyList();
+			System.out.println(test.getScoreForCategory(8));
+
 
 			System.out.println("End tests");
 		}

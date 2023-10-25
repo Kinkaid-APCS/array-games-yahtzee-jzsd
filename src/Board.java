@@ -358,29 +358,31 @@ public class Board {
 
 	public int FULL_HOUSE()
 	{
-		int j = 0;
+		int three = 0;
+		int two=0;
 		int scorefullhouse= 0;
 
 		for (int i = 0; i<frequencyChart.length;i++)
 		{
 			if (frequencyChart[i]==3)
 			{
-				j++;
+				three++;
 
 			}
 
 			else if (frequencyChart[i]==2)
 			{
-				j++;
+				two++;
 
 			}
 
 		}
 
-		if (j==2)
+		if (three==1&&two==1)
 		{
 			scorefullhouse = 25;
 		}
+
 
 		return scorefullhouse;
 
@@ -450,15 +452,19 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = new int[6]; // I just put this in here to compile - you can replace it.
+
+		int [] result = new int[7]; // I just put this in here to compile - you can replace it.
 		// ---------------------------
 		// TODO: write your code here.
 
 		for (int i = 0;i<frequencyChart.length;i++)
 		{
 			result [i] = frequencyChart[i];
+			System.out.print(frequencyChart[i]+" ");
 		}
 		// ---------------------------
+
+
 		return result;
 	}
 
