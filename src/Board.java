@@ -291,38 +291,38 @@ public class Board {
 
 	public int ONES ()
 	{
-		return frequencyChart[1];
+		return frequencyChart[1]*1;
 
 	}
 
 	public int TWOS ()
 	{
 
-		return frequencyChart[2];
+		return frequencyChart[2]*2;
 	}
 
 	public int THREES ()
 	{
 
-		return frequencyChart[3];
+		return frequencyChart[3]*3;
 	}
 
 	public int FOURS ()
 	{
 
-		return frequencyChart[4];
+		return frequencyChart[4]*4;
 	}
 
 	public int FIVES ()
 	{
 
-		return frequencyChart[5];
+		return frequencyChart[5]*5;
 	}
 
 	public int SIXES ()
 	{
 
-		return frequencyChart[6];
+		return frequencyChart[6]*6;
 	}
 
 	public int THREE_OF_KIND()

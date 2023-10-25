@@ -14,7 +14,7 @@ public class YahtzeeRunner {
 			test.debugSetDice(3,3,3,2,2);
 			System.out.println(test);
 			test.updateFrequencyList();
-			System.out.println(test.getScoreForCategory(8));
+			System.out.println(test.getScoreForCategory(2));
 
 
 			System.out.println("End tests");
