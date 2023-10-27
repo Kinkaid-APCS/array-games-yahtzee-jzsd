@@ -3,7 +3,7 @@ public class YahtzeeRunner {
 
 	public static void main(String[] args) {
 
-		boolean testingMode = true;
+		boolean testingMode = false;
 
 
 		Board test = new Board();
@@ -11,10 +11,10 @@ public class YahtzeeRunner {
 		{
 			System.out.println("Start tests");
 			// enter test code here.
-			test.debugSetDice(3,3,3,2,2);
+			test.debugSetDice(1,2,3,4,3);
 			System.out.println(test);
 			test.updateFrequencyList();
-			System.out.println(test.getScoreForCategory(2));
+			System.out.println(test.getScoreForCategory(10));
 
 
 			System.out.println("End tests");

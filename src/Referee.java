@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * The Referee class is in charge of keeping track of the Board (the dice)
  * and one or two ScoreCards, depending on how many players there are. It
@@ -10,6 +12,9 @@ public class Referee {
 
 	private ScoreCard[] myScoreCards; // one for each player
 	private Board theBoard;
+	private boolean isrolling;
+	private int timesrolled;
+	private boolean isPlaying;
 	
 	/**
 	 * constructor - set up the Referee class
@@ -18,6 +23,12 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
+		myScoreCards = new ScoreCard[1];
+		myScoreCards[0] = new ScoreCard();
+		theBoard = new Board();
+		isrolling = false;
+		timesrolled = 1;
+		isPlaying = true;
 		
 		//--------------------
 	}
@@ -48,14 +59,47 @@ public class Referee {
 	 */
 	public void playGame()
 	{
-		System.out.println("Game is playing");// placeholder code.
-		//--------------------
-		// TODO: insert your code here.
-		// Note: I've added some methods to this class to get you
-		//      started, but I suspect you will need to make some
-		//      more of your own. Use this as a starting point.
-				
-				
+		while(isPlaying) {
+			System.out.println("Game is playing");// placeholder code.
+			//--------------------
+			// TODO: insert your code here.
+			displayBoardAndDice();
+			System.out.println("What is your name?");
+			Scanner name = new Scanner(System.in);
+			System.out.println("Let's get started!");
+			rollAllDice();
+			System.out.println("Would you like to roll again? Y/N");
+			Scanner roll = new Scanner(System.in);
+			String rollagain = roll.nextLine();
+			if (rollagain == "Y") {
+				isrolling = true;
+			}
+			while (isrolling) {
+				System.out.println("What would you like to roll?");
+				Scanner dice = new Scanner(System.in);
+				String dicetoroll = dice.nextLine();
+				rollDice(dicetoroll);
+				timesrolled++;
+				theBoard.updateFrequencyList();
+				displayBoardAndDice();
+
+			}
+
+			if (timesrolled==3)
+			{
+				isrolling = false;
+				System.out.println("That's the last roll!");
+			}
+
+			System.out.println("What is the category you would like to import your score?");
+			Scanner score = new Scanner(System.in);
+			int scorecategory = score.nextInt();
+			theBoard.getScoreForCategory(scorecategory);
+
+			System.out.println("New Roll!");
+
+
+		}
 		//--------------------
 	}
 	
@@ -68,6 +112,7 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
+		theBoard.toString();
 		
 		//--------------------
 	}
