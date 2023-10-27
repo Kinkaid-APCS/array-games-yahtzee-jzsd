@@ -15,6 +15,7 @@ public class Referee {
 	private boolean isrolling;
 	private int timesrolled;
 	private boolean isPlaying;
+
 	
 	/**
 	 * constructor - set up the Referee class
@@ -94,7 +95,7 @@ public class Referee {
 			System.out.println("What is the category you would like to import your score?");
 			Scanner score = new Scanner(System.in);
 			int scorecategory = score.nextInt();
-			theBoard.getScoreForCategory(scorecategory);
+			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
 
 			System.out.println("New Roll!");
 
@@ -113,6 +114,8 @@ public class Referee {
 		//--------------------
 		// TODO: insert your code here.
 		theBoard.toString();
+		System.out.println("Your card");
+		System.out.println("1 Ones:     ");
 		
 		//--------------------
 	}

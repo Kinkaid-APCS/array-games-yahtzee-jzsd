@@ -43,7 +43,8 @@ public class ScoreCard {
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
-	
+
+	private int[] scoreholder;
 	/**
 	 * constructor - set up an empty scorecard.
      * Suggestion: start all scores as -1, since it is possible that the user
@@ -53,7 +54,14 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+		scoreholder = new int[13];
+		ScoreCard initial = new ScoreCard();
+		for (int i = 0;i<13;i++)
+		{
+			scoreholder[i] = -1;
+		}
+
+
 		//--------------------
 	}
 	
@@ -67,6 +75,10 @@ public class ScoreCard {
 		boolean empty = true;
 		//--------------------
 		// TODO: insert your code here.
+		if (category != -1)
+		{
+			empty = false;
+		}
 		
 		//--------------------
 		return empty;
@@ -77,11 +89,13 @@ public class ScoreCard {
 	 * @param score
 	 * @param category - which category (number?) to put this score into
 	 */
+	//use array here to create a space for where the scores live?
 	public void setScoreForCategory(int score, int category)
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+		scoreholder[category] = score;
+
 		//--------------------
 	}
 	
@@ -95,7 +109,7 @@ public class ScoreCard {
 		int response = -1;
 		//--------------------
 		// TODO: insert your code here.
-		
+		response = scoreholder[category];
 		//--------------------
 		return response;
 	}
@@ -106,12 +120,15 @@ public class ScoreCard {
 	 */
 	public int getTopSubtotal()
 	{
-		int subtotal = 0;
+		int topsubtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		for (int i = 0;i<=5;i++)
+		{
+			topsubtotal+= scoreholder[i];
+		}
 		//--------------------
-		return subtotal;
+		return topsubtotal;
 	}
 	/**
 	 * accessor for the subtotal of all the poker-hand fields
@@ -120,12 +137,15 @@ public class ScoreCard {
 	 */
 	public int getBottomSubtotal()
 	{
-		int subtotal = 0;
+		int bottomsubtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		for (int i = 6;i<=13;i++)
+		{
+			bottomsubtotal+= scoreholder[i];
+		}
 		//--------------------
-		return subtotal;		
+		return bottomsubtotal;
 	}
 	/**
 	 * determines the bonus found in the top section.
@@ -136,7 +156,10 @@ public class ScoreCard {
 		int bonus = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		if (getTopSubtotal() >=63)
+		{
+			bonus = 35;
+		}
 		//--------------------
 		return bonus;
 	}
@@ -146,7 +169,7 @@ public class ScoreCard {
 		int total = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		total = getTopSubtotal() + getBottomSubtotal() +getTopBonus();
 		//--------------------
 		return total;
 	}
@@ -171,7 +194,21 @@ public class ScoreCard {
 		String result = "";
 		//--------------------
 		// TODO: insert your code here.
-		
+		result = "(0) ONES           "+scoreholder[0]+"\r"+
+				 "(1) TWOS           "+scoreholder[1]+"\r"+
+				 "(2) THREES         "+scoreholder[2]+"\r"+
+				 "(3) FOURS          "+scoreholder[3]+"\r"+
+				 "(4) FIVES          "+scoreholder[4]+"\r"+
+				 "----------------------------------------"+ "\r"+
+		         "(5) 3 of a kind    "+scoreholder[5]+"\r"+
+				 "(6) 4 of a kind    "+scoreholder[6]+"\r"+
+				 "(7) Full House     "+scoreholder[7]+"\r"+
+				 "(8) Small Straight "+ scoreholder[8]+"\r"+
+				 "(9) Large Straight "+ scoreholder[9]+"\r"+
+				 "(10) Yahtzee       "+ scoreholder[10]+"\r"+
+				"(11) Chance         "+ scoreholder[11]+"\r"+
+				"------------------------------------------";
+
 		//--------------------
 		return result;
 	}
