@@ -21,6 +21,7 @@ public class ScoreCard {
 										 "LG STRAIGHT",
 										 "CHANCE     ",
 										 "YAHTZEE    "};
+	private String[] scoreholder1;
 	/* these "public static final" variables are constants I think you might find handy, 
 		since the numbers for the categories in the list above aren't really intuitive!
 		In this class, you can refer to the variable directly, e.g. "categoryIsEmpty(TWOS)".
@@ -57,6 +58,7 @@ public class ScoreCard {
 		//--------------------
 		// TODO: insert your code here.
 		scoreholder = new int[14];
+		scoreholder1 = new String[14];
 		for (int i = 0;i<13;i++)
 		{
 			scoreholder[i] = -1;
@@ -193,22 +195,35 @@ public class ScoreCard {
 
 	public String toString()
 	{
+
 		String result = "";
+		for (int i = 0;i<scoreholder.length;i++)
+		{
+			if (scoreholder[i]!=-1)
+			{
+				scoreholder1[i] = Integer.toString(scoreholder[i]);
+			}
+
+			else
+			{
+				scoreholder1[i] = "-";
+			}
+		}
 		//--------------------
 		// TODO: insert your code here.
-		result = "(0) ONES           "+scoreholder[0]+"\n"+
-				 "(1) TWOS           "+scoreholder[1]+"\n"+
-				 "(2) THREES         "+scoreholder[2]+"\n"+
-				 "(3) FOURS          "+scoreholder[3]+"\n"+
-				 "(4) FIVES          "+scoreholder[4]+"\n"+
+		result = "(0) ONES           "+scoreholder1[0]+"\n"+
+				 "(1) TWOS           "+scoreholder1[1]+"\n"+
+				 "(2) THREES         "+scoreholder1[2]+"\n"+
+				 "(3) FOURS          "+scoreholder1[3]+"\n"+
+				 "(4) FIVES          "+scoreholder1[4]+"\n"+
 				 "----------------------------------------"+ "\n"+
-		         "(5) 3 of a kind    "+scoreholder[5]+"\n"+
-				 "(6) 4 of a kind    "+scoreholder[6]+"\n"+
-				 "(7) Full House     "+scoreholder[7]+"\n"+
-				 "(8) Small Straight "+ scoreholder[8]+"\n"+
-				 "(9) Large Straight "+ scoreholder[9]+"\n"+
-				 "(10) Yahtzee       "+ scoreholder[10]+"\n"+
-				 "(11) Chance        "+ scoreholder[11]+"\n"+
+		         "(5) 3 of a kind    "+scoreholder1[5]+"\n"+
+				 "(6) 4 of a kind    "+scoreholder1[6]+"\n"+
+				 "(7) Full House     "+scoreholder1[7]+"\n"+
+				 "(8) Small Straight "+ scoreholder1[8]+"\n"+
+				 "(9) Large Straight "+ scoreholder1[9]+"\n"+
+				 "(10) Yahtzee       "+ scoreholder1[10]+"\n"+
+				 "(11) Chance        "+ scoreholder1[11]+"\n"+
 				 "-----------------------------------------"+"\n"+
 				 "Upper Score        "+ getTopSubtotal()+"\n"+
 				 "Lower Score        "+ getBottomSubtotal()+"\n"+
