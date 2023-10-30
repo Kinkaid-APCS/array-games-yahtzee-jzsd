@@ -126,7 +126,7 @@ public class ScoreCard {
 		// TODO: insert your code here.
 		for (int i = 0;i<=5;i++)
 		{
-			topsubtotal+= scoreholder[i];
+			if(scoreholder[i] != -1) topsubtotal+= scoreholder[i];
 		}
 		//--------------------
 		return topsubtotal;
@@ -143,7 +143,7 @@ public class ScoreCard {
 		// TODO: insert your code here.
 		for (int i = 6;i<=13;i++)
 		{
-			bottomsubtotal+= scoreholder[i];
+			if(scoreholder[i] != -1) bottomsubtotal+= scoreholder[i];
 		}
 		//--------------------
 		return bottomsubtotal;
