@@ -84,13 +84,11 @@ public class Referee {
 				timesrolled++;
 				theBoard.updateFrequencyList();
 				displayBoardAndDice();
-
-			}
-
-			if (timesrolled==3)
-			{
-				isrolling = false;
-				System.out.println("That's the last roll!");
+				if (timesrolled==3)
+				{
+					isrolling = false;
+					System.out.println("That's the last roll!");
+				}
 			}
 
 			System.out.println("What is the category you would like to import your score?");
