@@ -19,12 +19,22 @@ public class Board {
 
 	// TODO: decide which private member variables Board needs and declare them here. 
 	//          HINT: See the note above!
-	
+
+	private int[] myDice;
+	private int[] frequencyChart;
+	private int scoreAwarded = 0;
 	/**
 	 * constructor - set up initial values for the board.
 	 */
 	// TODO: write the Board's constructor
-	
+
+	public Board()
+	{
+		myDice = new int[5];
+		frequencyChart = new int[7];
+		frequencyChart[0] = -1;
+
+	}
 	/**
 	 * toString - creates a string depicting the dice on the board.
 	 * @return a string depicting the dice.
@@ -36,6 +46,25 @@ public class Board {
 	 * +---+---+---+---+---+
 	 */
 	// TODO: write the Board's toString method
+	public String toString()
+	{
+		String finalresult = "";
+
+		String diceresult = "";
+		diceresult+="| ";
+
+		for(int i = 0;i<myDice.length;i++)
+		{
+			diceresult += myDice[i]+" | ";
+		}
+
+		finalresult = "+---+---+---+---+---+\n" +
+				"| A | B | C | D | E |\n" +
+				"+---+---+---+---+---+\n"+diceresult+"\n+---+---+---+---+---+";
+
+	return finalresult;
+
+	}
 	
 	/**
 	 * rollSelectedDice - takes a string and goes letter by letter; if a
@@ -56,6 +85,41 @@ public class Board {
 			// so now "letter" is one of the letters in the string.
 			// TODO: write code here to look at "letter" and based on it, 
 			//       decide whether to re-roll one of the dice.
+			int lettertomatch=-1;
+
+			switch (letter)
+			{
+				case "A":
+				{
+					lettertomatch = 0;
+					break;
+				}
+
+				case "B":
+				{
+					lettertomatch = 1;
+					break;
+				}
+
+				case "C":
+				{
+					lettertomatch = 2;
+					break;
+				}
+				case "D":
+				{
+					lettertomatch = 3;
+					break;
+				}
+				case "E":
+				{
+					lettertomatch = 4;
+					break;
+				}
+			}
+
+			myDice[lettertomatch] = (int)(Math.random()*(6)+1);
+
 		}
 	
 	}
@@ -70,6 +134,51 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
+
+
+		for (int i = 0; i<myDice.length;i++)
+		{
+			switch (myDice[i])
+			{
+				case 1:
+				{
+					frequencyChart[1]++;
+					break;
+				}
+				case 2:
+				{
+					frequencyChart[2]++;
+					break;
+				}
+
+				case 3:
+				{
+					frequencyChart[3]++;
+					break;
+				}
+
+				case 4:
+				{
+					frequencyChart[4]++;
+					break;
+				}
+				case 5:
+				{
+					frequencyChart[5]++;
+					break;
+				}
+				case 6:
+				{
+					frequencyChart[6]++;
+					break;
+				}
+			}
+
+
+		}
+
+
+
 		
 		// ---------------------------
 	}
@@ -102,17 +211,260 @@ public class Board {
 	//    ones at the top of the card might work for more than one category. Others, like for full house, might be more
 	//    specialized....
 
+	public int getScoreForCategory(int category)
+	{
+		switch (category) {
+			case ScoreCard.ONES:
+			{
+				return ONES();
+
+			}
+
+			case ScoreCard.TWOS:
+			{
+			 return TWOS();
+			}
+
+			case ScoreCard.THREES:
+			{
+				return THREES();
+			}
+
+			case ScoreCard.FOURS:
+			{
+				return FOURS();
+			}
+
+			case ScoreCard.FIVES:
+			{
+				return FIVES();
+			}
+
+			case ScoreCard.SIXES:
+			{
+				return SIXES();
+			}
+
+			case ScoreCard.THREE_OF_A_KIND:
+			{
+				return THREE_OF_KIND();
+
+			}
+
+			case ScoreCard.FOUR_OF_A_KIND:
+			{
+				return FOUR_OF_A_KIND();
+			}
+
+			case ScoreCard.FULL_HOUSE:
+			{
+
+				return FULL_HOUSE();
+
+			}
+
+			case ScoreCard.SMALL_STRAIGHT:
+			{
+				return SMALL_STRAIGHT();
+			}
+
+			case ScoreCard.LARGE_STRAIGHT:
+			{
+				return LARGE_STRAIGHT();
+			}
+
+			case ScoreCard.CHANCE:
+			{
+				return CHANCE();
+			}
+
+			case ScoreCard.YAHTZEE:
+			{
+				return YAHTZEE();
+			}
+
+		}
+
+		return -1;
+
+	}
+
+	public int ONES ()
+	{
+		return frequencyChart[1]*1;
+
+	}
+
+	public int TWOS ()
+	{
+
+		return frequencyChart[2]*2;
+	}
+
+	public int THREES ()
+	{
+
+		return frequencyChart[3]*3;
+	}
+
+	public int FOURS ()
+	{
+
+		return frequencyChart[4]*4;
+	}
+
+	public int FIVES ()
+	{
+
+		return frequencyChart[5]*5;
+	}
+
+	public int SIXES ()
+	{
+
+		return frequencyChart[6]*6;
+	}
+
+	public int THREE_OF_KIND()
+	{
+		int scorethreeofakind=0;
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==3)
+			{
+				scorethreeofakind = frequencyChart[i]*i;
+			}
+
+		}
+
+		return scorethreeofakind;
+	}
+
+
+	public int FOUR_OF_A_KIND()
+	{
+		int fourofakind=0;
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==4)
+			{
+				fourofakind = frequencyChart[i]*i;
+			}
+
+		}
+
+		return fourofakind;
+	}
+
+	public int FULL_HOUSE()
+	{
+		int three = 0;
+		int two=0;
+		int scorefullhouse= 0;
+
+		for (int i = 0; i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i]==3)
+			{
+				three++;
+
+			}
+
+			else if (frequencyChart[i]==2)
+			{
+				two++;
+
+			}
+
+		}
+
+		if (three==1&&two==1)
+		{
+			scorefullhouse = 25;
+		}
+
+
+		return scorefullhouse;
+
+
+	}
+
+	public int SMALL_STRAIGHT()
+	{
+		int scoresmallstraight = 0;
+		for (int i= 1; i<3;i++)
+		{
+			if (frequencyChart[i]!=0 && frequencyChart[i+1]!=0&& frequencyChart[i+2]!=0&&frequencyChart[i+3]!=0)
+			{
+				scoresmallstraight = 30;
+			}
+
+		}
+
+		return scoresmallstraight;
+
+	}
+
+	public int LARGE_STRAIGHT()
+	{
+		int scorelargestraight=0;
+		if (frequencyChart[1]!=0&&frequencyChart[2]!=0&&frequencyChart[3]!=0&&frequencyChart[4]!=0&&frequencyChart[5]!=0)
+		{
+			scorelargestraight=40;
+		}
+
+		return scorelargestraight;
+	}
+
+
+	public int CHANCE()
+	{
+		int scorechance = 0;
+		for(int i =0;i<frequencyChart.length;i++)
+		{
+			scorechance+=frequencyChart[i]*i;
+		}
+
+
+		return scorechance;
+
+	}
+
+	public int YAHTZEE()
+	{
+
+		int scoreyahtzee = 0;
+
+		for(int i =0;i<frequencyChart.length;i++)
+		{
+			if (frequencyChart[i] == 5)
+			{
+				scoreyahtzee = 50;
+			}
+
+		}
+		return scoreyahtzee;
+	}
+
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
 	 * @return the list of frequencies.
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = null; // I just put this in here to compile - you can replace it.
+
+		int [] result = new int[7]; // I just put this in here to compile - you can replace it.
 		// ---------------------------
 		// TODO: write your code here.
-		
+
+		for (int i = 0;i<frequencyChart.length;i++)
+		{
+			result [i] = frequencyChart[i];
+			System.out.print(frequencyChart[i]+" ");
+		}
 		// ---------------------------
+
+
 		return result;
 	}
 
@@ -132,18 +484,56 @@ public class Board {
 	public void debugSetDice(int a, int b, int c, int d, int e)
 	{
 		// ---------------------------
-		// TODO: write your code here.
+		// TODO: write your code here
+		//
+		for (int i = 0;i<myDice.length;i++)
+		{
+			switch(i) {
+				case 0:
+				{
+					myDice[0] = a;
+					break;
+				}
+
+				case 1:
+				{
+					myDice[1] = b;
+					break;
+				}
+
+				case 2:
+				{
+					myDice[2] = c;
+					break;
+				}
+
+				case 3:
+				{
+					myDice[3] = d;
+					break;
+				}
+
+
+				case 4:
+				{
+					myDice[4] = e;
+					break;
+				}
+			}
+		}
 		
 		// ---------------------------		
 	}
 	
 	public int[] debugGetDice()
 	{
-		int[] result = null; // temporary, so this compiles
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
+
+		int[] result = new int[5];
+		for (int i = 0;i<myDice.length;i++)
+		{
+			result[i] = myDice[i];
+		}
+
 		return result;
 	}
 }
