@@ -196,24 +196,24 @@ public class ScoreCard {
 		String result = "";
 		//--------------------
 		// TODO: insert your code here.
-		result = "(0) ONES           "+scoreholder[0]+"\r"+
-				 "(1) TWOS           "+scoreholder[1]+"\r"+
-				 "(2) THREES         "+scoreholder[2]+"\r"+
-				 "(3) FOURS          "+scoreholder[3]+"\r"+
-				 "(4) FIVES          "+scoreholder[4]+"\r"+
-				 "----------------------------------------"+ "\r"+
-		         "(5) 3 of a kind    "+scoreholder[5]+"\r"+
-				 "(6) 4 of a kind    "+scoreholder[6]+"\r"+
-				 "(7) Full House     "+scoreholder[7]+"\r"+
-				 "(8) Small Straight "+ scoreholder[8]+"\r"+
-				 "(9) Large Straight "+ scoreholder[9]+"\r"+
-				 "(10) Yahtzee       "+ scoreholder[10]+"\r"+
-				 "(11) Chance        "+ scoreholder[11]+"\r"+
-				 "-----------------------------------------"+"\r"+
-				 "Upper Score        "+ getTopSubtotal()+"\r"+
-				 "Lower Score        "+ getBottomSubtotal()+"\r"+
-				 "Upper Bonus        "+ getTopBonus()+"\r"+
-				 "-----------------------------------------"+"\r"+
+		result = "(0) ONES           "+scoreholder[0]+"\n"+
+				 "(1) TWOS           "+scoreholder[1]+"\n"+
+				 "(2) THREES         "+scoreholder[2]+"\n"+
+				 "(3) FOURS          "+scoreholder[3]+"\n"+
+				 "(4) FIVES          "+scoreholder[4]+"\n"+
+				 "----------------------------------------"+ "\n"+
+		         "(5) 3 of a kind    "+scoreholder[5]+"\n"+
+				 "(6) 4 of a kind    "+scoreholder[6]+"\n"+
+				 "(7) Full House     "+scoreholder[7]+"\n"+
+				 "(8) Small Straight "+ scoreholder[8]+"\n"+
+				 "(9) Large Straight "+ scoreholder[9]+"\n"+
+				 "(10) Yahtzee       "+ scoreholder[10]+"\n"+
+				 "(11) Chance        "+ scoreholder[11]+"\n"+
+				 "-----------------------------------------"+"\n"+
+				 "Upper Score        "+ getTopSubtotal()+"\n"+
+				 "Lower Score        "+ getBottomSubtotal()+"\n"+
+				 "Upper Bonus        "+ getTopBonus()+"\n"+
+				 "-----------------------------------------"+"\n"+
 				 "Total Score "+ getTotal();
 
 
