@@ -56,8 +56,7 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		scoreholder = new int[13];
-		ScoreCard initial = new ScoreCard();
+		scoreholder = new int[14];
 		for (int i = 0;i<13;i++)
 		{
 			scoreholder[i] = -1;
@@ -209,8 +208,14 @@ public class ScoreCard {
 				 "(8) Small Straight "+ scoreholder[8]+"\r"+
 				 "(9) Large Straight "+ scoreholder[9]+"\r"+
 				 "(10) Yahtzee       "+ scoreholder[10]+"\r"+
-				"(11) Chance         "+ scoreholder[11]+"\r"+
-				"------------------------------------------";
+				 "(11) Chance        "+ scoreholder[11]+"\r"+
+				 "-----------------------------------------"+"\r"+
+				 "Upper Score        "+ getTopSubtotal()+"\r"+
+				 "Lower Score        "+ getBottomSubtotal()+"\r"+
+				 "Upper Bonus        "+ getTopBonus()+"\r"+
+				 "-----------------------------------------"+"\r"+
+				 "Total Score "+ getTotal();
+		System.out.println(result);
 
 		//--------------------
 		return result;

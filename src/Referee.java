@@ -15,6 +15,7 @@ public class Referee {
 	private boolean isrolling;
 	private int timesrolled;
 	private boolean isPlaying;
+	private ScoreCard myScoreCard;
 
 	
 	/**
@@ -24,8 +25,9 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		myScoreCards = new ScoreCard[1];
-		myScoreCards[0] = new ScoreCard();
+		//myScoreCards = new ScoreCard[1];
+		//myScoreCards[0] = new ScoreCard();
+		myScoreCard = new ScoreCard();
 		theBoard = new Board();
 		isrolling = false;
 		timesrolled = 1;
@@ -65,10 +67,9 @@ public class Referee {
 			//--------------------
 			// TODO: insert your code here.
 			displayBoardAndDice();
-			System.out.println("What is your name?");
-			Scanner name = new Scanner(System.in);
 			System.out.println("Let's get started!");
 			rollAllDice();
+			displayBoardAndDice();
 			System.out.println("Would you like to roll again? Y/N");
 			Scanner roll = new Scanner(System.in);
 			String rollagain = roll.nextLine();
@@ -113,9 +114,8 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		theBoard.toString();
-		System.out.println("Your card");
-		System.out.println("1 Ones:     ");
+		System.out.println(theBoard.toString());
+		System.out.println(myScoreCard.toString());
 		
 		//--------------------
 	}
