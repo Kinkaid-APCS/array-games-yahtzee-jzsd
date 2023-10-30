@@ -215,7 +215,8 @@ public class ScoreCard {
 				 "Upper Bonus        "+ getTopBonus()+"\r"+
 				 "-----------------------------------------"+"\r"+
 				 "Total Score "+ getTotal();
-		System.out.println(result);
+
+
 
 		//--------------------
 		return result;

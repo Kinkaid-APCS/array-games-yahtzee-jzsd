@@ -73,7 +73,7 @@ public class Referee {
 			System.out.println("Would you like to roll again? Y/N");
 			Scanner roll = new Scanner(System.in);
 			String rollagain = roll.nextLine();
-			if (rollagain == "Y") {
+			if (rollagain.equals("Y")) {
 				isrolling = true;
 			}
 			while (isrolling) {
