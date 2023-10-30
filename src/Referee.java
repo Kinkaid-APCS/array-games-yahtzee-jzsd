@@ -16,6 +16,7 @@ public class Referee {
 	private int timesrolled;
 	private boolean isPlaying;
 	private ScoreCard myScoreCard;
+	private int rollnumber = 0;
 
 	
 	/**
@@ -69,14 +70,29 @@ public class Referee {
 			displayBoardAndDice();
 			System.out.println("Let's get started!");
 			rollAllDice();
+			rollnumber = 1;
 			displayBoardAndDice();
+			rollAgain();
+			System.out.println("What is the category you would like to import your score?");
+			Scanner score = new Scanner(System.in);
+			int scorecategory = score.nextInt();
+			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
+			rollnumber = 0;
+			System.out.println("New Roll!");
+
+
+		}
+		//--------------------
+	}
+
+	public void rollAgain()
+	{
+		if(rollnumber < 3)
+		{
 			System.out.println("Would you like to roll again? Y/N");
 			Scanner roll = new Scanner(System.in);
-			String rollagain = roll.nextLine();
-			if (rollagain.equals("Y")) {
-				isrolling = true;
-			}
-			while (isrolling) {
+			if (roll.nextLine().equals("Y"))
+			{
 				System.out.println("What would you like to roll?");
 				Scanner dice = new Scanner(System.in);
 				String dicetoroll = dice.nextLine();
@@ -84,25 +100,13 @@ public class Referee {
 				timesrolled++;
 				theBoard.updateFrequencyList();
 				displayBoardAndDice();
-				if (timesrolled==3)
-				{
-					isrolling = false;
-					System.out.println("That's the last roll!");
-				}
+				rollnumber++;
+				rollAgain();
 			}
-
-			System.out.println("What is the category you would like to import your score?");
-			Scanner score = new Scanner(System.in);
-			int scorecategory = score.nextInt();
-			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
-
-			System.out.println("New Roll!");
-
-
 		}
-		//--------------------
+		else System.out.println("You're out of rolls!");
 	}
-	
+
 	/**
 	 * displayBoardAndDice - does a s.o.p. to the screen, showing
 	 * the score card for the current player, the dice, and ABCDE
