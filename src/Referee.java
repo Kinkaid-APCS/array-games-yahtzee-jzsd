@@ -79,8 +79,6 @@ public class Referee {
 			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
 			rollnumber = 0;
 			System.out.println("New Roll!");
-
-
 		}
 		//--------------------
 	}
