@@ -76,16 +76,26 @@ public class Referee {
 			rollAgain();
 			theBoard.updateFrequencyList();
 			System.out.println("What is the category you would like to import your score?");
-			Scanner score = new Scanner(System.in);
-			int scorecategory = score.nextInt();
-			System.out.println(theBoard.getFrequencies());
-			myScoreCard.setScoreForCategory(theBoard.getScoreForCategory(scorecategory), scorecategory);
+			updateScore();
 			rollnumber = 0;
 			System.out.println("New Roll!");
 			//w
 		}
 		//--------------------
 	}
+
+	public void updateScore()
+	{
+		Scanner score = new Scanner(System.in);
+		int scorecategory = score.nextInt();
+		if(myScoreCard.categoryIsEmpty(scorecategory)) myScoreCard.setScoreForCategory(theBoard.getScoreForCategory(scorecategory), scorecategory);
+		else
+		{
+			System.out.println("You already have a score for that category! Please enter another category.");
+			updateScore();
+		}
+	}
+
 
 	public void rollAgain()
 	{

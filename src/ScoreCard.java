@@ -78,7 +78,7 @@ public class ScoreCard {
 		boolean empty = true;
 		//--------------------
 		// TODO: insert your code here.
-		if (category != -1)
+		if (getScoreForCategory(category) != -1)
 		{
 			empty = false;
 		}
