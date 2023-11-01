@@ -41,8 +41,8 @@ public class ScoreCard {
 	public static final int FULL_HOUSE = 8;
 	public static final int SMALL_STRAIGHT = 9;
 	public static final int LARGE_STRAIGHT = 10;
-	public static final int CHANCE = 11;
-	public static final int YAHTZEE = 12;
+	public static final int CHANCE = 12;
+	public static final int YAHTZEE = 11;
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
