@@ -216,14 +216,15 @@ public class ScoreCard {
 				 "(2) THREES         "+scoreholder1[2]+"\n"+
 				 "(3) FOURS          "+scoreholder1[3]+"\n"+
 				 "(4) FIVES          "+scoreholder1[4]+"\n"+
+				 "(5) SIXES          "+scoreholder1[5]+"\n"+
 				 "----------------------------------------"+ "\n"+
-		         "(5) 3 of a kind    "+scoreholder1[5]+"\n"+
-				 "(6) 4 of a kind    "+scoreholder1[6]+"\n"+
-				 "(7) Full House     "+scoreholder1[7]+"\n"+
-				 "(8) Small Straight "+ scoreholder1[8]+"\n"+
-				 "(9) Large Straight "+ scoreholder1[9]+"\n"+
-				 "(10) Yahtzee       "+ scoreholder1[10]+"\n"+
-				 "(11) Chance        "+ scoreholder1[11]+"\n"+
+		         "(6) 3 of a kind    "+scoreholder1[6]+"\n"+
+				 "(7) 4 of a kind    "+scoreholder1[7]+"\n"+
+				 "(8) Full House     "+scoreholder1[8]+"\n"+
+				 "(9) Small Straight "+ scoreholder1[9]+"\n"+
+				 "(10) Large Straight "+ scoreholder1[10]+"\n"+
+				 "(11) Yahtzee       "+ scoreholder1[11]+"\n"+
+				 "(12) Chance        "+ scoreholder1[12]+"\n"+
 				 "-----------------------------------------"+"\n"+
 				 "Upper Score        "+ getTopSubtotal()+"\n"+
 				 "Lower Score        "+ getBottomSubtotal()+"\n"+

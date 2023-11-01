@@ -340,8 +340,10 @@ public class Board {
 		{
 			if (frequencyChart[i]==3)
 			{
-				scorethreeofakind = frequencyChart[i]*i;
+				scorethreeofakind = frequencyChart[i]*(i);
+				break;
 			}
+
 
 		}
 
