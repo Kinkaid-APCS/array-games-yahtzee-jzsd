@@ -82,6 +82,7 @@ public class Referee {
 			myScoreCard.setScoreForCategory(theBoard.getScoreForCategory(scorecategory), scorecategory);
 			rollnumber = 0;
 			System.out.println("New Roll!");
+			//w
 		}
 		//--------------------
 	}
