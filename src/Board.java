@@ -135,7 +135,6 @@ public class Board {
 		// ---------------------------
 		// TODO: write your code here.
 
-
 		for (int i = 0; i<myDice.length;i++)
 		{
 			switch (myDice[i])
@@ -182,7 +181,16 @@ public class Board {
 		
 		// ---------------------------
 	}
-	
+
+	public void resetfrequency ()
+	{
+		for (int i = 0;i<frequencyChart.length;i++)
+		{
+			frequencyChart[i] = 0;
+
+		}
+
+	}
 	
 	/**
 	 * getScoreForCategory - considers the current set of dice and calculates
@@ -217,7 +225,6 @@ public class Board {
 			case ScoreCard.ONES:
 			{
 				return ONES();
-
 			}
 
 			case ScoreCard.TWOS:
@@ -459,7 +466,7 @@ public class Board {
 
 		for (int i = 0;i<frequencyChart.length;i++)
 		{
-			result [i] = frequencyChart[i];
+			result[i] = frequencyChart[i];
 			System.out.print(frequencyChart[i]+" ");
 		}
 		// ---------------------------

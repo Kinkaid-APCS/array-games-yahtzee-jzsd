@@ -72,13 +72,16 @@ public class Referee {
 			rollAllDice();
 			rollnumber = 1;
 			displayBoardAndDice();
+			theBoard.getFrequencies();
 			rollAgain();
+			theBoard.updateFrequencyList();
 			System.out.println("What is the category you would like to import your score?");
 			Scanner score = new Scanner(System.in);
 			int scorecategory = score.nextInt();
-			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
-			myScoreCard.setScoreForCategory(scoreobtained, scorecategory);
+			System.out.println(theBoard.getFrequencies());
+			myScoreCard.setScoreForCategory(theBoard.getScoreForCategory(scorecategory), scorecategory);
 			rollnumber = 0;
+			theBoard.resetfrequency();
 			System.out.println("New Roll!");
 		}
 		//--------------------
