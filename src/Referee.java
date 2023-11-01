@@ -67,7 +67,7 @@ public class Referee {
 			System.out.println("Game is playing");// placeholder code.
 			//--------------------
 			// TODO: insert your code here.
-			displayBoardAndDice();
+			//displayBoardAndDice();
 			System.out.println("Let's get started!");
 			rollAllDice();
 			rollnumber = 1;
@@ -77,6 +77,7 @@ public class Referee {
 			Scanner score = new Scanner(System.in);
 			int scorecategory = score.nextInt();
 			int scoreobtained = theBoard.getScoreForCategory(scorecategory);
+			myScoreCard.setScoreForCategory(scoreobtained, scorecategory);
 			rollnumber = 0;
 			System.out.println("New Roll!");
 		}
