@@ -134,6 +134,7 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
+	resetfrequency();
 
 		for (int i = 0; i<myDice.length;i++)
 		{
