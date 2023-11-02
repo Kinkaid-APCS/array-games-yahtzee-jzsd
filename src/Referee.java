@@ -68,7 +68,15 @@ public class Referee {
 			//--------------------
 			// TODO: insert your code here.
 			//displayBoardAndDice();
-			System.out.println("Let's get started!");
+			System.out.println();
+			if (myScoreCard.win()==true)
+			{
+				theBoard.updateFrequencyList();
+				displayBoardAndDice();
+				isPlaying = false;
+				System.out.println("You've won!");
+				break;
+			}
 			rollAllDice();
 			theBoard.updateFrequencyList();
 			rollnumber = 1;

@@ -48,6 +48,7 @@ public class ScoreCard {
 	// TODO: decide which private member variables ScoreCard should have and create them here.
 
 	private int[] scoreholder;
+	private boolean iswin;
 	/**
 	 * constructor - set up an empty scorecard.
      * Suggestion: start all scores as -1, since it is possible that the user
@@ -57,8 +58,9 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		scoreholder = new int[14];
-		scoreholder1 = new String[14];
+		iswin = false;
+		scoreholder = new int[13];
+		scoreholder1 = new String[13];
 		for (int i = 0;i<13;i++)
 		{
 			scoreholder[i] = -1;
@@ -126,7 +128,7 @@ public class ScoreCard {
 		int topsubtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		for (int i = 0;i<=5;i++)
+		for (int i = 0;i<5;i++)
 		{
 			if(scoreholder[i] != -1) topsubtotal+= scoreholder[i];
 		}
@@ -143,7 +145,7 @@ public class ScoreCard {
 		int bottomsubtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		for (int i = 6;i<=13;i++)
+		for (int i = 6;i<13;i++)
 		{
 			if(scoreholder[i] != -1) bottomsubtotal+= scoreholder[i];
 		}
@@ -192,6 +194,35 @@ public class ScoreCard {
 	 * E FIVES          0
 	 * etc.
 	 */
+
+	public boolean win()
+	{
+
+		int check = 0;
+
+		for (int i=0;i< scoreholder.length;i++)
+		{
+			System.out.println("."+scoreholder[i]);
+			if (scoreholder[i]!=-1)
+			{
+				check++;
+			}
+		}
+
+		System.out.println("-*"+check);
+
+		if (check >= 13)
+		{
+			iswin = true;
+		}
+
+		else {
+			iswin = false;
+			check = 0;
+
+		}
+		return iswin;
+	}
 
 	public String toString()
 	{
