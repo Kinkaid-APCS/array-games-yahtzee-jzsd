@@ -202,14 +202,14 @@ public class ScoreCard {
 
 		for (int i=0;i< scoreholder.length;i++)
 		{
-			System.out.println("."+scoreholder[i]);
+			//System.out.println("."+scoreholder[i]);
 			if (scoreholder[i]!=-1)
 			{
 				check++;
 			}
 		}
 
-		System.out.println("-*"+check);
+	//	System.out.println("-*"+check);
 
 		if (check >= 13)
 		{
