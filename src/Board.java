@@ -134,8 +134,7 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-	resetfrequency();
-
+		resetfrequency();
 		for (int i = 0; i<myDice.length;i++)
 		{
 			switch (myDice[i])
@@ -176,21 +175,15 @@ public class Board {
 
 
 		}
-
-
-
-		
-		// ---------------------------
+			// ---------------------------
 	}
 
 	public void resetfrequency ()
 	{
-		for (int i = 0;i<frequencyChart.length;i++)
+		for (int i = 0; i<frequencyChart.length; i++)
 		{
 			frequencyChart[i] = 0;
-
 		}
-
 	}
 	
 	/**

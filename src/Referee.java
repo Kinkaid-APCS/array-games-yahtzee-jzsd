@@ -12,7 +12,6 @@ public class Referee {
 
 	private ScoreCard[] myScoreCards; // one for each player
 	private Board theBoard;
-	private boolean isrolling;
 	private int timesrolled;
 	private boolean isPlaying;
 	private ScoreCard myScoreCard;
@@ -30,7 +29,6 @@ public class Referee {
 		//myScoreCards[0] = new ScoreCard();
 		myScoreCard = new ScoreCard();
 		theBoard = new Board();
-		isrolling = false;
 		timesrolled = 1;
 		isPlaying = true;
 		
@@ -69,7 +67,7 @@ public class Referee {
 			// TODO: insert your code here.
 			//displayBoardAndDice();
 			System.out.println();
-			if (myScoreCard.win()==true)
+			if (myScoreCard.win() == true)
 			{
 				theBoard.updateFrequencyList();
 				displayBoardAndDice();
@@ -87,7 +85,6 @@ public class Referee {
 			updateScore();
 			rollnumber = 0;
 			System.out.println("New Roll!");
-			//w
 		}
 		//--------------------
 	}
@@ -107,11 +104,12 @@ public class Referee {
 
 	public void rollAgain()
 	{
-		if(rollnumber < 3)
+		while(rollnumber < 3)
 		{
 			System.out.println("Would you like to roll again? Y/N");
 			Scanner roll = new Scanner(System.in);
-			if (roll.nextLine().equals("Y"))
+			String response = roll.nextLine();
+			if (response.toUpperCase().equals("Y"))
 			{
 				System.out.println("What would you like to roll?");
 				Scanner dice = new Scanner(System.in);
@@ -121,10 +119,10 @@ public class Referee {
 				theBoard.updateFrequencyList();
 				displayBoardAndDice();
 				rollnumber++;
-				rollAgain();
 			}
+			else break;
 		}
-		else System.out.println("You're out of rolls!");
+		if(rollnumber>=3) System.out.println("You're out of rolls!");
 	}
 
 	/**
